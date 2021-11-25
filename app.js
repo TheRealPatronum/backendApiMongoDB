@@ -1,18 +1,24 @@
 // Server
+const port = 3000;
 const express = require('express');
 const app = express();
-const port = 3000;
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose'); // Status from com. with MongoDB Database
 const cors = require('cors');
 require('dotenv/config'); // To get confiuration file
+const authJwt = require('./helpers/jwt');
+const errorHandler = require('./helpers/error-handler');
 
 app.use(cors());
 app.options('*', cors());
 
 // Middleware
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(authJwt());
+app.use(errorHandler);
 
 // Routers
 const categoriesRoutes = require('./routes/categories');
