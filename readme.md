@@ -19,3 +19,6 @@ in the directory called Backup you will found json data that you can import to m
 Give the database the name eshop-database and the collections you give the same name as the files you import.
 
 then you have a functional backend api server if you use the code in this repo
+
+Still som testing to do. I will test this from the front end.
+Build start soon.
